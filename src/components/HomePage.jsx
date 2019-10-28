@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 
 export default class HomePage extends Component {
   state = {
-    sortBy = null,
+    sortBy: null,
   };
   render() {
-    return(
+    return (
       <homePage>
         <p>Hello</p>
       </homePage>

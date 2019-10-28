@@ -10,12 +10,14 @@ import HomePage from './components/HomePage';
 class App extends React.Component {
   state = {};
   render() {
-    <div className='App'>
-      <Header />
-      <Router>
-        <HomePage path='/' />
-      </Router>
-    </div>;
+    return (
+      <div className='App'>
+        <Header />
+        <Router>
+          <HomePage path='/' />
+        </Router>
+      </div>
+    );
   }
 }
 
