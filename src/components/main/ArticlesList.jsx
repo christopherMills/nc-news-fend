@@ -43,11 +43,16 @@ export default class ArticlesList extends Component {
         {isLoading ? (
           <p>Loading...</p>
         ) : (
-          <ul>
-            {articleList.map((item) => {
-              return <ArticleCard article={item} key={item.article_id} />;
-            })}
-          </ul>
+          <>
+            <ul>
+              {articleList.map((item) => {
+                return <ArticleCard article={item} key={item.article_id} />;
+              })}
+            </ul>
+            <p className='articleListFoot'>
+              Page {this.state.p} of XXX | Limit: {this.state.limit}
+            </p>
+          </>
         )}
       </div>
     );

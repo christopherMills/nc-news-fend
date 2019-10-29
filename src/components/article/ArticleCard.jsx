@@ -1,9 +1,17 @@
 import React from 'react';
+import { Link } from '@reach/router';
 
-const ArticleCard = (props) => {
+const ArticleCard = ({ article }) => {
+  console.log(article);
   return (
     <li className='artCard'>
-      <h2>{props.article.title}</h2>
+      {/* <Link> */}
+      <p id='cardTitle'>{article.title}</p>
+      {/* </Link> */}
+      <p>
+        author: {article.author} | votes: {article.votes} | comments:
+        {article.comment_count}
+      </p>
     </li>
   );
 };

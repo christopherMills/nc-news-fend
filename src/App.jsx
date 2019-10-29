@@ -7,7 +7,6 @@ import './App.css';
 import Header from './components/main/Header';
 import NavBar from './components/main/NavBar';
 import ArticlesList from './components/main/ArticlesList';
-
 // MAIN
 class App extends React.Component {
   state = {
