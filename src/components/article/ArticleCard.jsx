@@ -1,8 +1,11 @@
 import React from 'react';
 
-const ArticleCard = ({ articleObj }) => {
-  console.log('This gets called');
-  return <li className='artCard'>Hello</li>;
+const ArticleCard = (props) => {
+  return (
+    <li className='artCard'>
+      <h2>{props.article.title}</h2>
+    </li>
+  );
 };
 
 export default ArticleCard;

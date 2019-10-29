@@ -25,7 +25,7 @@ class App extends React.Component {
           sort_by={this.state.sort_by}
           className='navBar'
         />
-        <Router>
+        <Router className='rooter'>
           <ArticlesList
             order={this.state.order}
             sort_by={this.state.sort_by}
