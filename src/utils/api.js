@@ -26,3 +26,5 @@ export const getArticles = ({ sort_by, order, author, topic, limit, p }) => {
       console.log(error);
     });
 };
+
+export const getArticle = () => {};

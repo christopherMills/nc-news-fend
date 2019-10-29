@@ -7,6 +7,7 @@ import './App.css';
 import Header from './components/main/Header';
 import NavBar from './components/main/NavBar';
 import ArticlesList from './components/main/ArticlesList';
+import ArticleIndiv from './components/article/ArticleIndiv';
 // MAIN
 class App extends React.Component {
   state = {
@@ -35,6 +36,7 @@ class App extends React.Component {
             sort_by={this.state.sort_by}
             path='/articles'
           />
+          <ArticleIndiv path='/articles/:article_id' />
         </Router>
       </div>
     );

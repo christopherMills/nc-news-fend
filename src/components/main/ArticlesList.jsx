@@ -9,6 +9,7 @@ export default class ArticlesList extends Component {
     p: 1,
     limit: 10,
     isLoading: true,
+    totalPages: null,
   };
 
   componentDidMount() {
@@ -41,10 +42,10 @@ export default class ArticlesList extends Component {
     return (
       <div>
         {isLoading ? (
-          <p>Loading...</p>
+          <p id='isLoading'>Loading...</p>
         ) : (
           <>
-            <ul>
+            <ul className='artList'>
               {articleList.map((item) => {
                 return <ArticleCard article={item} key={item.article_id} />;
               })}

@@ -1,0 +1,11 @@
+.artCard {
+  list-style-type: none;
+}
+
+#cardTitle {
+  font-weight: bold;
+}
+
+#cardTitleMeta {
+  font-size: x-small;
+}
