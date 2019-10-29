@@ -12,7 +12,7 @@ import ArticlesList from './components/main/ArticlesList';
 class App extends React.Component {
   state = {
     order: null,
-    sortBy: null,
+    sort_by: null,
   };
   render() {
     return (
@@ -22,18 +22,18 @@ class App extends React.Component {
         <Header className='header' />
         <NavBar
           order={this.state.order}
-          sortBy={this.state.sortBy}
+          sort_by={this.state.sort_by}
           className='navBar'
         />
         <Router>
           <ArticlesList
             order={this.state.order}
-            sortBy={this.state.sortBy}
+            sort_by={this.state.sort_by}
             path='/'
           />
           <ArticlesList
             order={this.state.order}
-            sortBy={this.state.sortBy}
+            sort_by={this.state.sort_by}
             path='/articles'
           />
         </Router>

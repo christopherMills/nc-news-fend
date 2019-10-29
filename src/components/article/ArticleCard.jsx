@@ -1,9 +1,8 @@
 import React from 'react';
 
-export const ArticleCard = ({ articleObj }) => {
-  return (
-    <div className='artCard'>
-      <p></p>
-    </div>
-  );
+const ArticleCard = ({ articleObj }) => {
+  console.log('This gets called');
+  return <li className='artCard'>Hello</li>;
 };
+
+export default ArticleCard;

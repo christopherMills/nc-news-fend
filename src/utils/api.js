@@ -7,7 +7,7 @@ const config = {
 const axiosRequest = axios.create(config);
 
 // get an array of articles to put in article cards
-export const getArticles = (sort_by, order, author, topic, limit, p) => {
+export const getArticles = ({ sort_by, order, author, topic, limit, p }) => {
   return axiosRequest
     .get('/articles', {
       params: {

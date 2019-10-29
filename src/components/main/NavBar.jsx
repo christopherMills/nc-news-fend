@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Router, Link } from '@reach/router';
+import React from 'react';
+import { Link } from '@reach/router';
 import './NavBar.css';
 
 const NavBar = (props) => {
