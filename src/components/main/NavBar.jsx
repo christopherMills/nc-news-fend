@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { Router, Link } from '@reach/router';
+import './NavBar.css';
 
 const NavBar = (props) => {
   return (
-    <nav>
+    <nav className='navBar'>
       <Link to='/articles'>
         <button>Articles</button>
       </Link>
