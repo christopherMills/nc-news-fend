@@ -50,3 +50,15 @@ export const getTopics = () => {
       return error;
     });
 };
+
+// get the comments for a given article
+export const getComments = (article_id) => {
+  return axiosRequest
+    .get(`/articles/${article_id}/comments`)
+    .then(({ data }) => {
+      return data.comments;
+    })
+    .catch((error) => {
+      return error;
+    });
+};
