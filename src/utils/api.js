@@ -23,16 +23,28 @@ export const getArticles = ({ sort_by, order, author, topic, limit, p }) => {
       return data.articles;
     })
     .catch((error) => {
-      console.log(error);
+      return error;
     });
 };
 
+// get a single article to display when user has clicked on an article
 export const getArticle = (id) => {
   return axiosRequest
     .get(`/articles/${id}`)
     .then(({ data }) => {
-      console.log(data);
       return data;
+    })
+    .catch((error) => {
+      return error;
+    });
+};
+
+// get a list of topics and return as an array
+export const getTopics = () => {
+  return axiosRequest
+    .get(`/topics`)
+    .then(({ data }) => {
+      return data.topics;
     })
     .catch((error) => {
       return error;
