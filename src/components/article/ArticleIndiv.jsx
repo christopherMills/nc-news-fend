@@ -14,13 +14,29 @@ export default class ArticleIndiv extends Component {
     const { article_id } = this.props;
     api.getArticle(article_id).then((articleObj) => {
       this.setState({
-        articleActual: articleObj,
+        articleActual: articleObj.article,
         isLoading: false,
       });
     });
   }
 
   render() {
-    return <div>th</div>;
+    const { isLoading, articleActual } = this.state;
+    const jsDate = articleActual
+      ? new Date(articleActual.created_at)
+      : 'no_date';
+    return isLoading ? (
+      <p>Loading...</p>
+    ) : (
+      <div id='articleActual'>
+        <h2>{articleActual.title}</h2>
+        <p>{articleActual.body}</p>
+        <div id='articleActualFooter'>
+          <p>Created: {String(jsDate)}</p>
+          <p>Comments: ({articleActual.comment_count}) (show/hide)</p>
+          <p>Votes: {articleActual.votes} [+] [-] </p>
+        </div>
+      </div>
+    );
   }
 }

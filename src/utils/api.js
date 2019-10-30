@@ -27,4 +27,14 @@ export const getArticles = ({ sort_by, order, author, topic, limit, p }) => {
     });
 };
 
-export const getArticle = () => {};
+export const getArticle = (id) => {
+  return axiosRequest
+    .get(`/articles/${id}`)
+    .then(({ data }) => {
+      console.log(data);
+      return data;
+    })
+    .catch((error) => {
+      return error;
+    });
+};
