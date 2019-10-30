@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import * as api from '../../utils/api.js';
+import * as helper from '../../utils/helper';
+import Comments from '../comments/Comments.jsx';
 
 export default class ArticleIndiv extends Component {
   state = {
     isLoading: true,
     articleActual: null,
+    showComments: false,
   };
 
   // getArticle(id) {
@@ -33,9 +36,25 @@ export default class ArticleIndiv extends Component {
         <p>{articleActual.body}</p>
         <div id='articleActualFooter'>
           <p>Votes: {articleActual.votes} [+] [-] </p>
-          <p>Created: {String(jsDate)}</p>
-          <p>Comments: ({articleActual.comment_count}) (show/hide)</p>
+          <p>
+            {articleActual.author} | {helper.prettifyDate(jsDate)}
+          </p>
+          <hr id='horizLine' />
+          <button
+            disabled={this.state.showComments}
+            onClick={() => {
+              this.setState({
+                showComments: true,
+              });
+            }}>
+            Comments: ({articleActual.comment_count}){' '}
+          </button>
         </div>
+        {this.state.showComments ? (
+          <Comments article_id={this.props.article_id} />
+        ) : (
+          ' '
+        )}
       </div>
     );
   }
