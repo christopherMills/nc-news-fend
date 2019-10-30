@@ -16,8 +16,14 @@ export default class ArticlesList extends Component {
     this.getArticleList();
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props !== prevProps) {
+      this.getArticleList();
+    }
+  }
+
   getArticleList = () => {
-    const { sort_by, order } = this.props;
+    const { sort_by, order, topic } = this.props;
     const { p, limit } = this.state;
     api
       .getArticles({
@@ -25,6 +31,7 @@ export default class ArticlesList extends Component {
         limit,
         sort_by,
         order,
+        topic,
       })
       .then((articlesArray) => {
         this.setState({
