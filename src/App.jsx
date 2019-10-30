@@ -8,6 +8,7 @@ import Header from './components/main/Header';
 import NavBar from './components/main/NavBar';
 import ArticlesList from './components/main/ArticlesList';
 import ArticleIndiv from './components/article/ArticleIndiv';
+import TopicList from './components/topics/TopicList';
 // MAIN
 class App extends React.Component {
   state = {
@@ -37,6 +38,7 @@ class App extends React.Component {
             path='/articles'
           />
           <ArticleIndiv path='/articles/:article_id' />
+          <TopicList path='/topics' />
         </Router>
       </div>
     );
