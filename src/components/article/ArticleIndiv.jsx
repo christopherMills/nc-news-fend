@@ -32,9 +32,9 @@ export default class ArticleIndiv extends Component {
         <h2>{articleActual.title}</h2>
         <p>{articleActual.body}</p>
         <div id='articleActualFooter'>
+          <p>Votes: {articleActual.votes} [+] [-] </p>
           <p>Created: {String(jsDate)}</p>
           <p>Comments: ({articleActual.comment_count}) (show/hide)</p>
-          <p>Votes: {articleActual.votes} [+] [-] </p>
         </div>
       </div>
     );
