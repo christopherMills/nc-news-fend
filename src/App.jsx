@@ -12,33 +12,58 @@ import TopicList from './components/topics/TopicList';
 // MAIN
 class App extends React.Component {
   state = {
-    order: null,
-    sort_by: null,
+    order: undefined,
+    sort_by: undefined,
+    displaySort: true,
   };
+
+  setSortParams = (sort_by, order) => {
+    this.setState({
+      sort_by,
+      order,
+    });
+  };
+
+  toggleSort = (bool) => {
+    this.setState({
+      displaySort: bool,
+    });
+  };
+
+  // MIGHT NEED COMPONENT_DID_UPDATE HERE!!!
+
   render() {
     return (
       <div className='App'>
-        {/* PUT SITE BACKGROUND IN HOMEPAGE, 
-          RENDER SIDEBAR FROM HOMEPAGE */}
         <Header className='header' />
         <NavBar
           order={this.state.order}
           sort_by={this.state.sort_by}
+          displaySort={this.state.displaySort}
+          setSortParams={this.setSortParams}
           className='navBar'
         />
         <Router className='rooter'>
           <ArticlesList
             order={this.state.order}
             sort_by={this.state.sort_by}
+            displaySort={this.state.displaySort}
+            toggleSort={this.toggleSort}
             path='/'
           />
           <ArticlesList
             order={this.state.order}
             sort_by={this.state.sort_by}
+            displaySort={this.state.displaySort}
             path='/articles'
           />
           <ArticleIndiv path='/articles/:article_id' />
-          <TopicList path='/topics' />
+          <TopicList
+            order={this.state.order}
+            sort_by={this.state.sort_by}
+            displaySort={this.state.displaySort}
+            path='/topics'
+          />
         </Router>
       </div>
     );
