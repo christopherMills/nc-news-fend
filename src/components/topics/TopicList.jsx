@@ -34,7 +34,12 @@ export default class TopicList extends Component {
       <div id='TopicListPage'>
         <TopicSelector topicSel={this.topicSel} topicList={this.state.topics} />
         {this.state.selectedTopic ? (
-          <ArticlesList topic={this.state.selectedTopic} />
+          <ArticlesList
+            order={this.props.order}
+            sort_by={this.props.sort_by}
+            displaySort={this.props.displaySort}
+            topic={this.state.selectedTopic}
+          />
         ) : (
           <p>nothing here until article selected</p>
         )}
