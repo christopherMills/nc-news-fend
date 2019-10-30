@@ -22,6 +22,8 @@ export default class ArticlesList extends Component {
     }
   }
 
+  componentWillUnmount() {}
+
   getArticleList = () => {
     const { sort_by, order, topic } = this.props;
     const { p, limit } = this.state;
