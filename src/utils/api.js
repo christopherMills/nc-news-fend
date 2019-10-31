@@ -105,3 +105,17 @@ export const voteComment = (commentID, int) => {
       console.log(error);
     });
 };
+
+export const voteArticle = (articleID, int) => {
+  return axiosRequest
+    .patch(`/articles/${articleID}`, {
+      inc_votes: int,
+    })
+    .then((response) => {
+      console.log(response);
+      return response;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};

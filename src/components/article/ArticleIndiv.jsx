@@ -6,25 +6,37 @@ import Comments from '../comments/Comments.jsx';
 export default class ArticleIndiv extends Component {
   state = {
     isLoading: true,
-    articleActual: null,
+    articleActual: undefined,
+    votes: undefined,
     showComments: false,
+    hasVoted: false,
   };
 
-  // getArticle(id) {
-  //   return 5;
-  // }
   componentDidMount() {
     const { article_id } = this.props;
-    api.getArticle(article_id).then((articleObj) => {
+    api.getArticle(article_id).then(({ article }) => {
+      console.log(article);
       this.setState({
-        articleActual: articleObj.article,
+        articleActual: article,
+        votes: article.votes,
         isLoading: false,
       });
     });
   }
 
+  handleVote(int) {
+    const { article_id } = this.props;
+    api.voteArticle(article_id, int);
+    this.setState((currentState) => {
+      return {
+        votes: currentState.votes + int,
+        hasVoted: true,
+      };
+    });
+  }
+
   render() {
-    const { isLoading, articleActual } = this.state;
+    const { isLoading, articleActual, hasVoted, votes } = this.state;
     const jsDate = articleActual
       ? new Date(articleActual.created_at)
       : 'no_date';
@@ -35,7 +47,25 @@ export default class ArticleIndiv extends Component {
         <h2>{articleActual.title}</h2>
         <p>{articleActual.body}</p>
         <div id='articleActualFooter'>
-          <p>Votes: {articleActual.votes} [+] [-] </p>
+          <p>
+            Votes: {votes}
+            <button
+              disabled={hasVoted}
+              onClick={() => {
+                this.handleVote(1);
+              }}
+              id='incVoteButton'>
+              +
+            </button>
+            <button
+              disabled={hasVoted}
+              onClick={() => {
+                this.handleVote(-1);
+              }}
+              id='decVoteButton'>
+              -
+            </button>
+          </p>
           <p>
             {articleActual.author} | {helper.prettifyDate(jsDate)}
           </p>
