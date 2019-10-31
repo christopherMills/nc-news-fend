@@ -53,6 +53,7 @@ export default class Comments extends Component {
     });
   }
 
+  // RENDER
   render() {
     const { comments } = this.state;
     return comments.length ? (
@@ -61,7 +62,7 @@ export default class Comments extends Component {
           {comments.map((commentObj) => {
             return (
               <CommentCard
-                user={this.props.username}
+                username={this.props.username}
                 key={commentObj.comment_id}
                 commentObj={commentObj}
               />
