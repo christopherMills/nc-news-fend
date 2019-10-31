@@ -78,3 +78,30 @@ export const postComment = (article_id, text, user) => {
       return error;
     });
 };
+
+export const deleteComment = (commentID) => {
+  return axiosRequest
+    .delete(`/comments/${commentID}`)
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => {
+      return error;
+    });
+};
+
+// sends a vote for a comment, which is a simple
+// -1 or +1
+export const voteComment = (commentID, int) => {
+  return axiosRequest
+    .patch(`/comments/${commentID}`, {
+      inc_votes: int,
+    })
+    .then((response) => {
+      console.log(response);
+      return response;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
