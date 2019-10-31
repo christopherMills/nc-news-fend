@@ -7,7 +7,6 @@ export default function CommentCard({ commentObj }) {
     : 'no date';
   return (
     <li>
-      {console.log(Object.keys(commentObj))}
       <div id='commentBody'>{commentObj.body}</div>
       <div id='commentMetadata'>
         <p>Votes: {commentObj.votes} [+] [-]</p>

@@ -22,7 +22,7 @@ export default class ArticlesList extends Component {
     }
   }
 
-  componentWillUnmount() {}
+  componentWillUnmount() {} // I'm guessing there was a plan for this, hmm?
 
   getArticleList = () => {
     const { sort_by, order, topic } = this.props;

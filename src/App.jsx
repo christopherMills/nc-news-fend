@@ -15,6 +15,7 @@ class App extends React.Component {
     order: undefined,
     sort_by: undefined,
     displaySort: true,
+    username: 'jessjelly',
   };
 
   setSortParams = (sort_by, order) => {
@@ -30,7 +31,7 @@ class App extends React.Component {
     });
   };
 
-  // MIGHT NEED COMPONENT_DID_UPDATE HERE!!!
+  // MIGHT NEED COMPONENT_DID_UPDATE HERE!!!  c
 
   render() {
     return (
@@ -57,7 +58,10 @@ class App extends React.Component {
             displaySort={this.state.displaySort}
             path='/articles'
           />
-          <ArticleIndiv path='/articles/:article_id' />
+          <ArticleIndiv
+            path='/articles/:article_id'
+            username={this.state.username}
+          />
           <TopicList
             order={this.state.order}
             sort_by={this.state.sort_by}

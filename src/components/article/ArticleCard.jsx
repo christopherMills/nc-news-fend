@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from '@reach/router';
 import './ArticleCard.css';
+import * as helper from '../../utils/helper';
 
 const ArticleCard = ({ article }) => {
   // console.log(article);
@@ -10,8 +11,8 @@ const ArticleCard = ({ article }) => {
         <p id='cardTitle'>{article.title}</p>
       </Link>
       <p id='cardTitleMeta'>
-        author: {article.author} | votes: {article.votes} | comments:
-        {article.comment_count}
+        by {article.author} on {helper.getShortDate(article.created_at)} |
+        votes: {article.votes} | {article.comment_count} comments
       </p>
     </li>
   );

@@ -62,3 +62,19 @@ export const getComments = (article_id) => {
       return error;
     });
 };
+
+// post a comment
+export const postComment = (article_id, text, user) => {
+  return axiosRequest
+    .post(`/articles/${article_id}/comments`, {
+      articleID: article_id,
+      username: user,
+      body: text,
+    })
+    .then(({ data }) => {
+      return data;
+    })
+    .catch((error) => {
+      return error;
+    });
+};

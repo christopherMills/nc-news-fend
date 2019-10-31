@@ -51,7 +51,10 @@ export default class ArticleIndiv extends Component {
           </button>
         </div>
         {this.state.showComments ? (
-          <Comments article_id={this.props.article_id} />
+          <Comments
+            article_id={this.props.article_id}
+            username={this.props.username}
+          />
         ) : (
           ' '
         )}
