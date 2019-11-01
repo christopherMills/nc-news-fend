@@ -7,6 +7,7 @@ export default class CommentCard extends Component {
     commentObj: {},
     votes: undefined,
     hasVoted: false,
+    hasDeleted: false,
   };
 
   componentDidMount() {
@@ -19,15 +20,16 @@ export default class CommentCard extends Component {
   // handles deletion of a comment
   handleClick = () => {
     const { comment_id } = this.state.commentObj;
+    this.setState({
+      commentObj: {
+        body: 'Deleting...',
+      },
+    });
     api
       .deleteComment(comment_id)
       .then((res) => {
         if (res.status === 204) {
-          this.setState({
-            commentObj: {
-              body: '<deleted>',
-            },
-          });
+          this.props.removeCommentFromParent(comment_id);
         }
       })
       .catch((err) => {

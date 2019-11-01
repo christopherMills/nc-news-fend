@@ -31,7 +31,6 @@ export default class Comments extends Component {
           });
         }
       })
-
       .catch((error) => {
         return error;
       });
@@ -41,6 +40,17 @@ export default class Comments extends Component {
   handleUserInput = (event) => {
     this.setState({
       userInput: event.target.value,
+    });
+  };
+
+  // remove a comment from local state
+  removeComment = (comment_id) => {
+    this.setState((currentState) => {
+      return {
+        comments: currentState.comments.filter((eachComment) => {
+          return eachComment.comment_id !== comment_id;
+        }),
+      };
     });
   };
 
@@ -65,6 +75,7 @@ export default class Comments extends Component {
                 username={this.props.username}
                 key={commentObj.comment_id}
                 commentObj={commentObj}
+                removeCommentFromParent={this.removeComment}
               />
             );
           })}
