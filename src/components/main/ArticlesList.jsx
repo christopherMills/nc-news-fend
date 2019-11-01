@@ -22,8 +22,6 @@ export default class ArticlesList extends Component {
     }
   }
 
-  componentWillUnmount() {} // I'm guessing there was a plan for this, hmm?
-
   getArticleList = () => {
     const { sort_by, order, topic } = this.props;
     const { p, limit } = this.state;

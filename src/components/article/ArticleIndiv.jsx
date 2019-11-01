@@ -21,7 +21,6 @@ export default class ArticleIndiv extends Component {
     api
       .getArticle(article_id)
       .then(({ article }) => {
-        console.log(article);
         this.setState({
           articleActual: article,
           votes: article.votes,

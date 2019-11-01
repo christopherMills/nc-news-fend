@@ -4,7 +4,6 @@ import './ArticleCard.css';
 import * as helper from '../../utils/helper';
 
 const ArticleCard = ({ article }) => {
-  // console.log(article);
   return (
     <li className='artCard'>
       <Link to={`/articles/${article.article_id}`}>

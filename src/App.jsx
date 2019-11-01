@@ -35,8 +35,6 @@ class App extends React.Component {
     });
   };
 
-  // MIGHT NEED COMPONENT_DID_UPDATE HERE!!!  c
-
   render() {
     return (
       <div className='App'>
