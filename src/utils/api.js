@@ -74,6 +74,7 @@ export const postComment = (article_id, text, user) => {
     });
 };
 
+// delete a comment by its UID
 export const deleteComment = (commentID) => {
   return axiosRequest
     .delete(`/comments/${commentID}`)
@@ -101,6 +102,8 @@ export const voteComment = (commentID, int) => {
     });
 };
 
+// Increment / decrement the votecount
+// of an article by a specified integer
 export const voteArticle = (articleID, int) => {
   return axiosRequest
     .patch(`/articles/${articleID}`, {
