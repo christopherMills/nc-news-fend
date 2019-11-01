@@ -29,14 +29,9 @@ export const getArticles = ({ sort_by, order, author, topic, limit, p }) => {
 
 // get a single article to display when user has clicked on an article
 export const getArticle = (id) => {
-  return axiosRequest
-    .get(`/articles/${id}`)
-    .then(({ data }) => {
-      return data;
-    })
-    .catch((error) => {
-      return error;
-    });
+  return axiosRequest.get(`/articles/${id}`).then(({ data }) => {
+    return data;
+  });
 };
 
 // get a list of topics and return as an array

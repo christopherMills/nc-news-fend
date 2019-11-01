@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as api from '../../utils/api.js';
 import * as helper from '../../utils/helper';
 import Comments from '../comments/Comments.jsx';
+import ErrorHandler from '../errors/errorHandler.jsx';
 
 export default class ArticleIndiv extends Component {
   state = {
@@ -10,18 +11,30 @@ export default class ArticleIndiv extends Component {
     votes: undefined,
     showComments: false,
     hasVoted: false,
+    hasErrored: false,
+    errorStatusCode: undefined,
+    errorMsg: undefined,
   };
 
   componentDidMount() {
     const { article_id } = this.props;
-    api.getArticle(article_id).then(({ article }) => {
-      console.log(article);
-      this.setState({
-        articleActual: article,
-        votes: article.votes,
-        isLoading: false,
+    api
+      .getArticle(article_id)
+      .then(({ article }) => {
+        console.log(article);
+        this.setState({
+          articleActual: article,
+          votes: article.votes,
+          isLoading: false,
+        });
+      })
+      .catch(({ response }) => {
+        this.setState({
+          hasErrored: true,
+          errorStatusCode: response.status,
+          errorMsg: response.data.msg,
+        });
       });
-    });
   }
 
   handleVote(int) {
@@ -36,7 +49,18 @@ export default class ArticleIndiv extends Component {
   }
 
   render() {
-    const { isLoading, articleActual, hasVoted, votes } = this.state;
+    const {
+      isLoading,
+      articleActual,
+      hasVoted,
+      votes,
+      hasErrored,
+      errorMsg,
+      errorStatusCode,
+    } = this.state;
+    if (hasErrored) {
+      return <ErrorHandler statusCode={errorStatusCode} errorMsg={errorMsg} />;
+    }
     const jsDate = articleActual
       ? new Date(articleActual.created_at)
       : 'no_date';

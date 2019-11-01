@@ -1,14 +1,18 @@
 // MODULES
 import React from 'react';
 import { Router } from '@reach/router';
+
 // STYLES
 import './App.css';
+
 // COMPONENTS
 import Header from './components/main/Header';
 import NavBar from './components/main/NavBar';
 import ArticlesList from './components/main/ArticlesList';
 import ArticleIndiv from './components/article/ArticleIndiv';
 import TopicList from './components/topics/TopicList';
+import ErrorHandler from './components/errors/errorHandler';
+
 // MAIN
 class App extends React.Component {
   state = {
@@ -67,6 +71,11 @@ class App extends React.Component {
             sort_by={this.state.sort_by}
             displaySort={this.state.displaySort}
             path='/topics'
+          />
+          <ErrorHandler
+            default
+            statusCode='400'
+            errorMsg='Invalid path requested'
           />
         </Router>
       </div>
