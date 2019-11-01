@@ -4,26 +4,17 @@ import * as helpers from '../../utils/helper';
 
 export default class CommentCard extends Component {
   state = {
-    commentObj: {},
     votes: undefined,
+    deleting: false,
     hasVoted: false,
     hasDeleted: false,
   };
 
-  componentDidMount() {
-    this.setState({
-      commentObj: this.props.commentObj,
-      votes: this.props.commentObj.votes,
-    });
-  }
-
   // handles deletion of a comment
-  handleClick = () => {
-    const { comment_id } = this.state.commentObj;
+  handleDelete = () => {
+    const { comment_id } = this.props.commentObj;
     this.setState({
-      commentObj: {
-        body: 'Deleting...',
-      },
+      deleting: true,
     });
     api
       .deleteComment(comment_id)
@@ -37,28 +28,28 @@ export default class CommentCard extends Component {
       });
   };
 
+  // handles votes on a comment
   handleVote(int) {
-    const { comment_id } = this.state.commentObj;
+    const { comment_id } = this.props.commentObj;
     api.voteComment(comment_id, int);
-    this.setState((currentState) => {
-      return {
-        votes: currentState.votes + int,
-        hasVoted: true,
-      };
+    this.setState({
+      votes: this.props.commentObj.votes + int,
+      hasVoted: true,
     });
   }
 
   render() {
-    const { commentObj, hasVoted, votes } = this.state;
+    const { commentObj } = this.props;
+    const { hasVoted, votes, deleting } = this.state;
     const jsDate = commentObj.created_at
       ? new Date(commentObj.created_at)
       : 'no date';
     return (
       <li>
-        <div id='commentBody'>{commentObj.body}</div>
+        <div id='commentBody'>{deleting ? 'deleting...' : commentObj.body}</div>
         <div id='commentMetadata'>
           <p>
-            Votes: {votes}
+            Votes: {votes || commentObj.votes}
             <button
               disabled={hasVoted}
               onClick={() => {
@@ -77,7 +68,7 @@ export default class CommentCard extends Component {
             </button>
           </p>
           {commentObj.author === this.props.username ? (
-            <button onClick={this.handleClick}>delete</button>
+            <button onClick={this.handleDelete}>delete</button>
           ) : (
             <p></p>
           )}
