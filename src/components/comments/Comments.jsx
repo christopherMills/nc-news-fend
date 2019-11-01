@@ -82,15 +82,18 @@ export default class Comments extends Component {
         </ul>
         <form onSubmit={this.handleSubmit}>
           <h3>Add a comment:</h3>
-          <input
-            type='text'
-            onChange={this.handleUserInput}
-            value={this.state.userInput}
-            placeholder='Enter text here'
-          />
-          <button disabled={this.state.successfulInput}>Submit</button>
-          {this.state.successfulInput && (
-            <p id='inputSuccess'>Comment posted successfully!</p>
+          {this.state.successfulInput ? (
+            <p id='inputSuccess'>Comment posted!</p>
+          ) : (
+            <>
+              <input
+                type='text'
+                onChange={this.handleUserInput}
+                value={this.state.userInput}
+                placeholder='Enter text here'
+              />
+              <button disabled={this.state.successfulInput}>Submit</button>
+            </>
           )}
         </form>
       </>
