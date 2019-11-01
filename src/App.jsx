@@ -7,7 +7,7 @@ import './App.css';
 
 // COMPONENTS
 import Header from './components/main/Header';
-import NavBar from './components/main/NavBar';
+import NavBar from './components/main/NavBar_';
 import ArticlesList from './components/main/ArticlesList';
 import ArticleIndiv from './components/article/ArticleIndiv';
 import TopicList from './components/topics/TopicList';
@@ -22,7 +22,7 @@ class App extends React.Component {
     username: 'jessjelly',
   };
 
-  setSortParams = (sort_by, order) => {
+  setSortParams = (sort_by, order = undefined) => {
     this.setState({
       sort_by,
       order,
