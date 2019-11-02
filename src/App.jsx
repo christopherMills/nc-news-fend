@@ -7,7 +7,7 @@ import './App.css';
 
 // COMPONENTS
 import Header from './components/main/Header';
-import NavBar from './components/main/NavBar_';
+import NavBar from './components/main/NavBar';
 import ArticlesList from './components/main/ArticlesList';
 import ArticleIndiv from './components/article/ArticleIndiv';
 import TopicList from './components/topics/TopicList';
