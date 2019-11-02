@@ -31,7 +31,7 @@ export default class CommentCard extends Component {
   // handles votes on a comment
   handleVote(int) {
     const { comment_id } = this.props.commentObj;
-    api.voteComment(comment_id, int);
+    api.voteRequest('comments', comment_id, int);
     this.setState({
       votes: this.props.commentObj.votes + int,
       hasVoted: true,

@@ -38,7 +38,7 @@ export default class ArticleIndiv extends Component {
 
   handleVote(int) {
     const { article_id } = this.props;
-    api.voteArticle(article_id, int);
+    api.voteRequest('articles', article_id, int);
     this.setState((currentState) => {
       return {
         votes: currentState.votes + int,
