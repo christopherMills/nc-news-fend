@@ -86,27 +86,41 @@ export const deleteComment = (commentID) => {
     });
 };
 
-// sends a vote for a comment, which is a simple
-// -1 or +1
-export const voteComment = (commentID, int) => {
-  return axiosRequest
-    .patch(`/comments/${commentID}`, {
-      inc_votes: int,
-    })
-    .then((response) => {
-      console.log(response);
-      return response;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
+// // sends a vote for a comment, which is a simple
+// // -1 or +1
+// export const voteComment = (commentID, int) => {
+//   return axiosRequest
+//     .patch(`/comments/${commentID}`, {
+//       inc_votes: int,
+//     })
+//     .then((response) => {
+//       console.log(response);
+//       return response;
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// };
 
-// Increment / decrement the votecount
-// of an article by a specified integer
-export const voteArticle = (articleID, int) => {
+// // Increment / decrement the votecount
+// // of an article by a specified integer
+// export const voteArticle = (articleID, int) => {
+//   return axiosRequest
+//     .patch(`/articles/${articleID}`, {
+//       inc_votes: int,
+//     })
+//     .then((response) => {
+//       console.log(response);
+//       return response;
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// };
+
+export const voteRequest = (endpointVar, id, int) => {
   return axiosRequest
-    .patch(`/articles/${articleID}`, {
+    .patch(`/${endpointVar}/${id}`, {
       inc_votes: int,
     })
     .then((response) => {
