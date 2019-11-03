@@ -1,6 +1,6 @@
 # NC-News front-end
 
-This project was completed in November 2019 for the front-end block of NorthCoders. It's [hosted on Netlify](https://netlify.com/).
+This project was completed in November 2019 for the front-end block of NorthCoders. It's [hosted on Netlify](https://clm-nc-news-fend.netlify.com).
 
 The back-end is [hosted on Heroku](https://nc-news-bend.herokuapp.com/) and you can view the [original git repository too](https://github.com/christopherMills/backendNews).
 

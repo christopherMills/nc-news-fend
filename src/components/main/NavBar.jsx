@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from '@reach/router';
-import './NavBar.css';
 
 export default function NavBar(props) {
   const { displaySort, sort_by /*, order*/ } = props;
