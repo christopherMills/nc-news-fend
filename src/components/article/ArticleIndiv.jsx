@@ -78,7 +78,7 @@ export default class ArticleIndiv extends Component {
                 this.handleVote(1);
               }}
               id='incVoteButton'>
-              +
+              [+]
             </button>
             <button
               disabled={hasVoted}
@@ -86,7 +86,7 @@ export default class ArticleIndiv extends Component {
                 this.handleVote(-1);
               }}
               id='decVoteButton'>
-              -
+              [-]
             </button>
           </p>
           <p>
@@ -100,7 +100,7 @@ export default class ArticleIndiv extends Component {
                 showComments: true,
               });
             }}>
-            Comments: ({articleActual.comment_count}){' '}
+            [ comments: ({articleActual.comment_count}) ]
           </button>
         </div>
         {this.state.showComments ? (
