@@ -6,7 +6,7 @@ const ArticleCard = ({ article }) => {
   return (
     <li className='artCard'>
       <Link to={`/articles/${article.article_id}`}>
-        <p id='cardTitle'>{article.title}</p>
+        <p id='cardTitle'>{`> ${article.title}`}</p>
       </Link>
       <p id='cardTitleMeta'>
         by {article.author} on {helper.getShortDate(article.created_at)} |
