@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from '@reach/router';
-import './ArticleCard.css';
 import * as helper from '../../utils/helper';
 
 const ArticleCard = ({ article }) => {

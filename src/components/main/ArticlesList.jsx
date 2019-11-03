@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import * as api from '../../utils/api.js';
 import ArticleCard from '../article/ArticleCard';
-import './ArticlesList.css';
 
 export default class ArticlesList extends Component {
   state = {

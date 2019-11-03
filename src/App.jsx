@@ -40,11 +40,11 @@ class App extends React.Component {
       <div className='App'>
         <Header className='header' />
         <NavBar
+          className='navBar'
           order={this.state.order}
           sort_by={this.state.sort_by}
           displaySort={this.state.displaySort}
           setSortParams={this.setSortParams}
-          className='navBar'
         />
         <Router className='rooter'>
           <ArticlesList
@@ -72,7 +72,7 @@ class App extends React.Component {
           />
           <ErrorHandler
             default
-            statusCode='400'
+            statusCode='404'
             errorMsg='Invalid path requested'
           />
         </Router>
