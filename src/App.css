@@ -1,0 +1,47 @@
+body,
+a,
+button,
+select {
+  color: rgb(204, 223, 205);
+  font-family: monospace;
+  text-shadow: 0 0 6px #ffffff;
+}
+
+button,
+select {
+  border-color: green;
+  border-style: dotted;
+  background-color: transparent;
+}
+
+li {
+  list-style-type: none;
+}
+
+#cardTitleMeta,
+#articleActualFooter,
+#commentMetadata {
+  font-size: small;
+}
+
+.mainFlex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 600px) {
+  .navBar {
+    width: 100%;
+  }
+  .router {
+    width: 100%;
+  }
+}
+
+.navBar {
+  display: flex;
+  flex-direction: column;
+  float: left;
+  width: 20%;
+}
