@@ -92,7 +92,7 @@ export default class Comments extends Component {
                 value={this.state.userInput}
                 placeholder='Enter text here'
               />
-              <button disabled={this.state.successfulInput}>Submit</button>
+              <button disabled={this.state.successfulInput}>[Submit]</button>
             </>
           )}
         </form>
