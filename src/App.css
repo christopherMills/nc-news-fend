@@ -1,33 +1,55 @@
 body,
 a,
 button,
-select {
+select,
+input {
   color: rgb(204, 223, 205);
   font-family: monospace;
   text-shadow: 0 0 6px #ffffff;
 }
 
 button,
-select {
-  border-color: green;
-  border-style: dotted;
-  background-color: transparent;
+select,
+input {
+  margin: 1px;
+  padding: 2px;
+  border-style: none;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 li {
   list-style-type: none;
+  padding: 8px;
+}
+
+.sortSelect ul,
+.sortSelect li {
+  padding: 0px;
+  margin: 0px;
 }
 
 #cardTitleMeta,
 #articleActualFooter,
 #commentMetadata {
   font-size: small;
+  padding-left: 20px;
 }
 
 .mainFlex {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+.navBar {
+  display: flex;
+  flex-direction: column;
+  float: left;
+  width: 20%;
+}
+
+.router {
+  width: 70%;
 }
 
 @media only screen and (max-width: 600px) {
@@ -39,9 +61,6 @@ li {
   }
 }
 
-.navBar {
-  display: flex;
-  flex-direction: column;
-  float: left;
-  width: 20%;
+.custom-select {
+  appearance: none;
 }
