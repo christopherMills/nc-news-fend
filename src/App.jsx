@@ -17,7 +17,7 @@ import ErrorHandler from './components/errors/errorHandler';
 class App extends React.Component {
   state = {
     order: undefined,
-    sort_by: undefined,
+    sort_by: 'created_at',
     displaySort: true,
     username: 'jessjelly',
   };
