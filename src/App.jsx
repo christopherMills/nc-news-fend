@@ -39,43 +39,46 @@ class App extends React.Component {
     return (
       <div className='App'>
         <Header className='header' />
-        <NavBar
-          className='navBar'
-          order={this.state.order}
-          sort_by={this.state.sort_by}
-          displaySort={this.state.displaySort}
-          setSortParams={this.setSortParams}
-        />
-        <Router className='rooter'>
-          <ArticlesList
+        <div className='mainFlex'>
+          <NavBar
+            className='navBar'
             order={this.state.order}
             sort_by={this.state.sort_by}
             displaySort={this.state.displaySort}
-            toggleSort={this.toggleSort}
-            path='/'
+            setSortParams={this.setSortParams}
           />
-          <ArticlesList
-            order={this.state.order}
-            sort_by={this.state.sort_by}
-            displaySort={this.state.displaySort}
-            path='/articles'
-          />
-          <ArticleIndiv
-            path='/articles/:article_id'
-            username={this.state.username}
-          />
-          <TopicList
-            order={this.state.order}
-            sort_by={this.state.sort_by}
-            displaySort={this.state.displaySort}
-            path='/topics'
-          />
-          <ErrorHandler
-            default
-            statusCode='404'
-            errorMsg='Invalid path requested'
-          />
-        </Router>
+          <Router className='router'>
+            <ArticlesList
+              order={this.state.order}
+              sort_by={this.state.sort_by}
+              displaySort={this.state.displaySort}
+              toggleSort={this.toggleSort}
+              path='/'
+            />
+            <ArticlesList
+              order={this.state.order}
+              sort_by={this.state.sort_by}
+              displaySort={this.state.displaySort}
+              path='/articles'
+            />
+            <ArticleIndiv
+              path='/articles/:article_id'
+              username={this.state.username}
+              displaySort={this.state.displaySort}
+            />
+            <TopicList
+              order={this.state.order}
+              sort_by={this.state.sort_by}
+              displaySort={this.state.displaySort}
+              path='/topics'
+            />
+            <ErrorHandler
+              default
+              statusCode='404'
+              errorMsg='Invalid path requested'
+            />
+          </Router>
+        </div>
       </div>
     );
   }
