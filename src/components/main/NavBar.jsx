@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from '@reach/router';
+import './NavBar.css';
 
 export default function NavBar(props) {
   const { displaySort, sort_by /*, order*/ } = props;
@@ -15,19 +16,47 @@ export default function NavBar(props) {
   return (
     <nav className='navBar'>
       <Link to='/articles'>
-        <button>Articles</button>
+        <button>[Articles]</button>
       </Link>
       <Link to='/topics'>
-        <button>Topics</button>
+        <button>[Topics]</button>
       </Link>
       {displaySort && (
         <form onSubmit={handleSubmit}>
           <p>Sort by:</p>
-          <select value={sort_by} onChange={handleChange}>
-            <option value='created_at'>Date and time</option>
-            <option value='comment_count'>Comments</option>
-            <option value='votes'>Vote count</option>
-          </select>
+          <div className='sortSelect'>
+            <ul>
+              <li>
+                <input
+                  type='radio'
+                  value='created_at'
+                  checked={sort_by === 'created_at'}
+                  onChange={handleChange}
+                />
+                Date & time
+              </li>
+              <br />
+              <li>
+                <input
+                  type='radio'
+                  value='comment_count'
+                  checked={sort_by === 'comment_count'}
+                  onChange={handleChange}
+                />
+                Comment count
+              </li>
+              <br />
+              <li>
+                <input
+                  type='radio'
+                  value='votes'
+                  checked={sort_by === 'votes'}
+                  onChange={handleChange}
+                />
+                Vote count
+              </li>
+            </ul>
+          </div>
         </form>
       )}
     </nav>
