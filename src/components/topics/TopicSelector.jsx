@@ -11,7 +11,7 @@ const TopicSelector = ({ topicSel, topicList }) => {
               topicSel(eachTopic.slug);
             }}
             key={eachTopic.slug}>
-            {eachTopic.slug}
+            [{eachTopic.slug}]
           </button>
         );
       })}
