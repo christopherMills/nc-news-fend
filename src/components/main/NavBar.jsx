@@ -20,11 +20,9 @@ export default function NavBar(props) {
       <Link to='/topics'>
         <button>Topics</button>
       </Link>
-      {/* <Link to='authors'>
-        <button>Authors</button>
-      </Link> */}
       {displaySort && (
         <form onSubmit={handleSubmit}>
+          <p>Sort by:</p>
           <select value={sort_by} onChange={handleChange}>
             <option value='created_at'>Date and time</option>
             <option value='comment_count'>Comments</option>
