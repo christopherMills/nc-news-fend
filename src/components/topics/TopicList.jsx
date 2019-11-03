@@ -41,7 +41,7 @@ export default class TopicList extends Component {
             topic={this.state.selectedTopic}
           />
         ) : (
-          <p>nothing here until article selected</p>
+          <p></p>
         )}
       </div>
     );
