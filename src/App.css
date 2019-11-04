@@ -2,6 +2,10 @@ body {
   font-size: 16px;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 body,
 a,
 button,
@@ -44,6 +48,12 @@ li {
   padding-left: 20px;
 }
 
+.appMain {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .mainFlex {
   display: flex;
   flex-direction: row;
@@ -59,6 +69,7 @@ li {
 
 .router {
   width: 70%;
+  float: right;
 }
 
 @media only screen and (max-width: 600px) {
@@ -69,7 +80,3 @@ li {
     width: 100%;
   }
 }
-
-/* .custom-select {
-  appearance: none;
-} */
