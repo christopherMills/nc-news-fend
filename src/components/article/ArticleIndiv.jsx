@@ -78,7 +78,7 @@ export default class ArticleIndiv extends Component {
                 this.handleVote(1);
               }}
               id='incVoteButton'>
-              [+]
+              [ + ]
             </button>
             <button
               disabled={hasVoted}
@@ -86,7 +86,7 @@ export default class ArticleIndiv extends Component {
                 this.handleVote(-1);
               }}
               id='decVoteButton'>
-              [-]
+              [ - ]
             </button>
           </p>
           <p>

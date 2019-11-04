@@ -35,10 +35,20 @@ class App extends React.Component {
     });
   };
 
+  changeUser = (string) => {
+    this.setState({
+      username: string,
+    });
+  };
+
   render() {
     return (
       <div className='App'>
-        <Header className='header' />
+        <Header
+          className='header'
+          username={this.state.username}
+          changeUser={this.changeUser}
+        />
         <div className='mainFlex'>
           <NavBar
             className='navBar'

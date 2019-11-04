@@ -46,9 +46,9 @@ export default class CommentCard extends Component {
       : 'no date';
     return (
       <li>
-        <div id='commentBody'>
+        <p id='commentBody'>
           {deleting ? 'deleting...' : `> ${commentObj.body}`}
-        </div>
+        </p>
         <div id='commentMetadata'>
           <p>
             Votes: {votes || commentObj.votes}
@@ -58,7 +58,7 @@ export default class CommentCard extends Component {
                 this.handleVote(1);
               }}
               id='incVoteButton'>
-              [+]
+              [ + ]
             </button>
             <button
               disabled={hasVoted}
@@ -66,7 +66,7 @@ export default class CommentCard extends Component {
                 this.handleVote(-1);
               }}
               id='decVoteButton'>
-              [-]
+              [ - ]
             </button>
           </p>
           {commentObj.author === this.props.username ? (
