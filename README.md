@@ -8,8 +8,7 @@ The back-end is [hosted on Heroku](https://nc-news-bend.herokuapp.com/) and you 
 
 ### Prerequisites
 
-- NodeJS
-- NPM
+- Node 13.0.1 or later
 - Git
 
 ### Directions
