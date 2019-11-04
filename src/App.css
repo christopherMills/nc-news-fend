@@ -48,12 +48,6 @@ li {
   padding-left: 20px;
 }
 
-.appMain {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
 .mainFlex {
   display: flex;
   flex-direction: row;
