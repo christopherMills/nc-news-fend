@@ -8,11 +8,6 @@ const Header = () => {
       <Link className='mainHeader' to='/'>
         <h1>{title}</h1>
       </Link>
-      {/* <form className='customSelect'>
-        <select>
-          <option>Something</option>
-        </select>
-      </form> */}
     </>
   );
 };
