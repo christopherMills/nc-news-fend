@@ -16,7 +16,7 @@ export default class ArticlesList extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.props !== prevProps) {
+    if (this.props !== prevProps || this.state.p !== prevState.p) {
       this.getArticleList();
     }
   }
@@ -32,10 +32,11 @@ export default class ArticlesList extends Component {
         order,
         topic,
       })
-      .then((articlesArray) => {
+      .then((data) => {
         this.setState({
-          articleList: articlesArray,
+          articleList: data.articles,
           isLoading: false,
+          totalPages: Math.ceil(data.totalArticles / limit),
         });
       })
       .catch((error) => {
@@ -43,8 +44,20 @@ export default class ArticlesList extends Component {
       });
   };
 
+  changePage = (int) => {
+    const { p, totalPages } = this.state;
+    const requested = p + int;
+    if (p + int > 0 && p + int <= totalPages) {
+      this.setState({
+        p: requested,
+      });
+    }
+  };
+
   render() {
     const { isLoading, articleList } = this.state;
+    const greaterThanSymbol = '>>';
+    const lessThanSymbol = '<<';
     return (
       <div>
         {isLoading ? (
@@ -57,8 +70,16 @@ export default class ArticlesList extends Component {
               })}
             </ul>
             <p className='articleListFoot'>
-              Page {this.state.p} of XXX | Limit: {this.state.limit}
+              <button onClick={() => this.changePage(-1)}>
+                [ {lessThanSymbol} ]
+              </button>{' '}
+              page {this.state.p} of {this.state.totalPages}{' '}
+              <button onClick={() => this.changePage(1)}>
+                [ {greaterThanSymbol} ]
+              </button>
             </p>
+            Items per page: {this.state.limit}
+            <p></p>
           </>
         )}
       </div>

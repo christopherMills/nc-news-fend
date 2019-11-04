@@ -20,10 +20,7 @@ export const getArticles = ({ sort_by, order, author, topic, limit, p }) => {
       },
     })
     .then(({ data }) => {
-      return data.articles;
-    })
-    .catch((error) => {
-      return error;
+      return data;
     });
 };
 
@@ -124,7 +121,6 @@ export const voteRequest = (endpointVar, id, int) => {
       inc_votes: int,
     })
     .then((response) => {
-      console.log(response);
       return response;
     })
     .catch((error) => {
