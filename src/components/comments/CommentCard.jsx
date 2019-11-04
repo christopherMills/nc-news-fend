@@ -51,7 +51,7 @@ export default class CommentCard extends Component {
         </p>
         <div id='commentMetadata'>
           <p>
-            Votes: {votes || commentObj.votes}
+            Votes: {votes === undefined ? commentObj.votes : votes}
             <button
               disabled={hasVoted}
               onClick={() => {
