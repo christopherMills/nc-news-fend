@@ -14,6 +14,7 @@ export default function NavBar(props) {
 
   return (
     <nav className='navBar'>
+      <p>View:</p>
       <Link to='/articles'>
         <button>[Articles]</button>
       </Link>
@@ -58,6 +59,8 @@ export default function NavBar(props) {
           </div>
         </form>
       )}
+      <p>User:</p>
+      <p>[select user]</p>
     </nav>
   );
 }
