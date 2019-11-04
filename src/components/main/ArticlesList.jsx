@@ -8,7 +8,7 @@ export default class ArticlesList extends Component {
     p: 1,
     limit: 10,
     isLoading: true,
-    totalPages: null,
+    totalPages: undefined,
   };
 
   componentDidMount() {
@@ -36,9 +36,7 @@ export default class ArticlesList extends Component {
         this.setState({
           articleList: data.articles,
           isLoading: false,
-          totalPages: topic
-            ? data.articles.length
-            : Math.ceil(data.totalArticles / limit),
+          totalPages: Math.ceil(data.totalArticles / limit),
         });
       })
       .catch((error) => {
