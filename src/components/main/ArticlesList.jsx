@@ -36,7 +36,9 @@ export default class ArticlesList extends Component {
         this.setState({
           articleList: data.articles,
           isLoading: false,
-          totalPages: Math.ceil(data.totalArticles / limit),
+          totalPages: topic
+            ? data.articles.length
+            : Math.ceil(data.totalArticles / limit),
         });
       })
       .catch((error) => {
