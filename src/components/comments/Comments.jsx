@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import * as api from '../../utils/api';
 import CommentCard from './CommentCard';
+import ErrorHandler from '../errors/errorHandler';
 
 export default class Comments extends Component {
   state = {
     comments: [],
     userInput: '',
     successfulInput: false,
+    hasErrored: false,
+    error: undefined,
   };
 
   // HELPER METHODS
@@ -56,17 +59,29 @@ export default class Comments extends Component {
 
   // LIFECYCLE METHODS
   componentDidMount() {
-    api.getComments(this.props.article_id).then((comments) => {
-      this.setState({
-        comments,
+    api
+      .getComments(this.props.article_id)
+      .then((comments) => {
+        this.setState({
+          comments,
+        });
+      })
+      .catch((error) => {
+        this.setState({
+          error,
+        });
       });
-    });
   }
 
   // RENDER
   render() {
-    const { comments } = this.state;
-    return comments.length ? (
+    const { comments, error } = this.state;
+    return this.state.hasErrored ? (
+      <ErrorHandler
+        statusCode={error.response.request.status}
+        errorMsg='Sorry, we seem to be having a problem with our server'
+      />
+    ) : comments.length ? (
       <>
         <ul>
           {comments.map((commentObj) => {
@@ -88,6 +103,7 @@ export default class Comments extends Component {
             <>
               <input
                 type='text'
+                required={true}
                 onChange={this.handleUserInput}
                 value={this.state.userInput}
                 placeholder='Enter text here'
