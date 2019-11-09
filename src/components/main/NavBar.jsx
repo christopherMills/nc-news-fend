@@ -61,9 +61,7 @@ export default function NavBar(props) {
         </form>
       )}
       <p>User:</p>
-      <p>
-        <User username={props.username} changeUser={props.changeUser} />
-      </p>
+      <User username={props.username} changeUser={props.changeUser} />
     </nav>
   );
 }
