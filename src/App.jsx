@@ -19,7 +19,7 @@ class App extends React.Component {
     order: undefined,
     sort_by: 'created_at',
     displaySort: true,
-    username: '',
+    username: 'jessjelly',
   };
 
   setSortParams = (sort_by, order = undefined) => {
