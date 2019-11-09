@@ -19,7 +19,7 @@ class App extends React.Component {
     order: undefined,
     sort_by: 'created_at',
     displaySort: true,
-    username: 'jessjelly',
+    username: '',
   };
 
   setSortParams = (sort_by, order = undefined) => {
@@ -35,9 +35,9 @@ class App extends React.Component {
     });
   };
 
-  changeUser = (string) => {
+  changeUser = (string, shouldLogOut) => {
     this.setState({
-      username: string,
+      username: shouldLogOut ? undefined : string,
     });
   };
 
@@ -56,6 +56,8 @@ class App extends React.Component {
             sort_by={this.state.sort_by}
             displaySort={this.state.displaySort}
             setSortParams={this.setSortParams}
+            changeUser={this.changeUser}
+            username={this.state.username}
           />
           <Router className='router'>
             <ArticlesList
@@ -64,6 +66,7 @@ class App extends React.Component {
               displaySort={this.state.displaySort}
               toggleSort={this.toggleSort}
               path='/'
+              username={this.state.username}
             />
             <ArticlesList
               order={this.state.order}
@@ -81,6 +84,7 @@ class App extends React.Component {
               sort_by={this.state.sort_by}
               displaySort={this.state.displaySort}
               path='/topics'
+              username={this.state.username}
             />
             <ErrorHandler
               default

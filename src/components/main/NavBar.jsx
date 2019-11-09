@@ -1,4 +1,5 @@
 import React from 'react';
+import User from './User';
 import { Link } from '@reach/router';
 
 export default function NavBar(props) {
@@ -60,7 +61,9 @@ export default function NavBar(props) {
         </form>
       )}
       <p>User:</p>
-      <p>[select user]</p>
+      <p>
+        <User username={props.username} changeUser={props.changeUser} />
+      </p>
     </nav>
   );
 }
