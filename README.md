@@ -46,7 +46,7 @@ BACK END - HOSTED ON HEROKU
 FRONT END - HOSTED ON NETLIFY
 ```
 
-## Installilng this on your machine
+## Installing this on your machine
 
 ### Prerequisites
 
